@@ -11,7 +11,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23C9F44D'/%3E%3Ctext x='50%25' y='64%25' text-anchor='middle' font-family='Didot,Bodoni 72,Georgia,serif' font-size='38' fill='%231D1E24'%3EA%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --fog: #E8E9EE;
@@ -48,7 +48,14 @@
   a:hover { color: var(--ink); }
   :focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 3px; }
   .wrap { width: min(1200px, 100% - 2.5rem); margin-inline: auto; }
-  h1, h2, h3 { font-family: var(--serif); font-weight: 400; font-optical-sizing: auto; }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 500; }
+  /* Bodoni's large optical sizes have hairline strokes that vanish at display sizes.
+     Pinning a small optical size keeps the luxury feel but gives sturdy, readable strokes. */
+  h1, h2, h3, h4, .nav-name, .role-line, .proof b, .phase .big b, blockquote, .contact .mail,
+  .findings li::before, .matrix th[scope=row], .interlude blockquote {
+    font-optical-sizing: none;
+    font-variation-settings: "opsz" 11;
+  }
 
   /* nav */
   .nav {
@@ -67,7 +74,7 @@
   /* hero */
   .hero { padding: clamp(2.5rem, 7vw, 5.5rem) 0 clamp(2.5rem, 6vw, 4.5rem); }
   .hero-grid { display: grid; grid-template-columns: 1.3fr .85fr; gap: clamp(2rem, 5vw, 5rem); align-items: end; }
-  .hero h1 { font-size: clamp(3rem, 8.4vw, 7.4rem); line-height: .92; letter-spacing: -.025em; }
+  .hero h1 { font-size: clamp(3rem, 8vw, 7rem); line-height: .95; letter-spacing: -.015em; }
   .hero h1 span { display: block; white-space: nowrap; }
   .hero h1 span + span { padding-left: .6em; font-style: italic; }
   .role-line { margin-top: 1.6rem; font-family: var(--serif); font-size: clamp(1.25rem, 2.2vw, 1.6rem); line-height: 1.3; }
@@ -101,13 +108,13 @@
   .proof { margin-top: clamp(2.5rem, 6vw, 4rem); display: grid; grid-template-columns: repeat(4, 1fr); border-radius: 22px; overflow: hidden; border: 1px solid rgba(255,255,255,.85); background: rgba(246,247,249,.55); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
   .proof div { padding: 1.3rem 1.4rem; }
   .proof div + div { border-left: 1px solid rgba(29,30,36,.08); }
-  .proof b { display: block; font-family: var(--serif); font-weight: 400; font-size: clamp(2rem, 3.6vw, 2.8rem); line-height: 1; margin-bottom: .45rem; }
+  .proof b { display: block; font-family: var(--serif); font-weight: 500; font-size: clamp(2rem, 3.6vw, 2.8rem); line-height: 1; margin-bottom: .45rem; }
   .proof span { font-size: .92rem; color: var(--ink-soft); line-height: 1.45; display: block; }
 
   /* sections */
   section { padding: clamp(3.5rem, 8vw, 6.5rem) 0; }
   .head { display: grid; grid-template-columns: 1fr 1.6fr; gap: 2rem; margin-bottom: clamp(2rem, 5vw, 3.2rem); align-items: end; }
-  .head h2 { font-size: clamp(2.5rem, 5.6vw, 4.4rem); line-height: .98; letter-spacing: -.02em; }
+  .head h2 { font-size: clamp(2.5rem, 5.6vw, 4.4rem); line-height: .98; letter-spacing: -.01em; }
   .head p { color: var(--ink-soft); max-width: 40rem; }
 
   /* CRM */
@@ -120,7 +127,7 @@
   .phase p { color: #C9CBD8; max-width: var(--measure); }
   .phase .big { display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 1.2rem; }
   .phase .big div { font-size: .9rem; color: #B9BBCB; }
-  .phase .big b { display: block; font-family: var(--serif); font-weight: 400; font-size: 2.4rem; line-height: 1; color: var(--lime); }
+  .phase .big b { display: block; font-family: var(--serif); font-weight: 500; font-size: 2.4rem; line-height: 1; color: var(--lime); }
   .board-title { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.1rem; }
   .board-title h3 { font-size: 1.9rem; color: #fff; }
   .board-title p { color: #9C9EB0; font-size: .92rem; }
@@ -136,7 +143,7 @@
   .ticket small { color: #8E90A3; font-size: .8rem; margin-top: auto; }
   .stack { margin-top: 2.4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
   .stack div { padding: 1.4rem 1.6rem; border-radius: 18px; border: 1px dashed rgba(255,255,255,.18); }
-  .stack h4 { font-family: var(--serif); font-weight: 400; font-size: 1.35rem; color: #fff; margin-bottom: .4rem; }
+  .stack h4 { font-family: var(--serif); font-weight: 500; font-size: 1.35rem; color: #fff; margin-bottom: .4rem; }
   .stack p { color: #C9CBD8; font-size: .96rem; }
 
   /* projects */
