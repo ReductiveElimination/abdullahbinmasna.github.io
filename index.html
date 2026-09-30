@@ -1,1373 +1,651 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Abdullah Bin Masna — Luxury Brand Strategist</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Abdullah Bin Masna | Brand, CRM and luxury marketing</title>
+<meta name="description" content="Abdullah Bin Masna. MA Luxury Brand Management, University of Southampton. CRM and marketing automation consultant. Selected projects: Bremont, Fabergé, Mitsukoshi Nihonbashi and luxury localisation in the GCC.">
+<meta property="og:title" content="Abdullah Bin Masna">
+<meta property="og:description" content="Brand, CRM and luxury marketing. Selected work and experience.">
+<meta property="og:image" content="images/abdullah-lime.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23C9F44D'/%3E%3Ctext x='50%25' y='58%25' text-anchor='middle' font-family='Georgia,serif' font-size='34' fill='%231D1E24'%3EA%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --gold: #B8965A;
-    --gold-light: #D4AE78;
-    --gold-pale: #F5EDD8;
-    --ink: #1A1612;
-    --ink-mid: #3D342A;
-    --ink-soft: #6B5D50;
-    --cream: #FAF7F2;
-    --cream-dark: #F0EAE0;
-    --white: #FFFFFF;
-    --border: rgba(184,150,90,0.25);
-    --border-soft: rgba(184,150,90,0.12);
+    --fog: #E7E8EE;        /* page base, cool morning haze */
+    --glass: #F5F6F9;      /* lighter panels */
+    --ink: #1D1E24;        /* text */
+    --ink-soft: #55576A;   /* secondary text */
+    --lime: #C9F44D;       /* taken from the portrait backdrop */
+    --lilac: #CFC8E4;      /* ethereal haze */
+    --rust: #8E4F2B;       /* the corduroy jacket, used for links */
+    --serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+    --sans: "Hanken Grotesk", "Segoe UI", system-ui, sans-serif;
+    --measure: 64ch;
   }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
   body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--cream);
+    font-family: var(--sans);
+    font-size: 1.0625rem;
+    line-height: 1.65;
     color: var(--ink);
-    font-size: 15px;
-    line-height: 1.7;
+    background:
+      radial-gradient(60vw 50vw at 85% 8%, rgba(207,200,228,.55), transparent 70%),
+      radial-gradient(50vw 40vw at 5% 60%, rgba(201,244,77,.16), transparent 70%),
+      var(--fog);
+    -webkit-font-smoothing: antialiased;
+  }
+  /* film grain over everything, very faint */
+  body::after {
+    content: "";
+    position: fixed; inset: 0;
+    pointer-events: none;
+    z-index: 50;
+    opacity: .07;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
-  /* NAV */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    background: rgba(250,247,242,0.92);
+  img { display: block; max-width: 100%; }
+  a { color: var(--rust); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:hover { color: var(--ink); }
+  :focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 2px; }
+
+  .wrap { width: min(1180px, 100% - 2.5rem); margin-inline: auto; }
+
+  /* ---------- nav: a frosted strip ---------- */
+  .nav {
+    position: sticky; top: 0; z-index: 40;
+    backdrop-filter: blur(14px) saturate(1.2);
+    -webkit-backdrop-filter: blur(14px) saturate(1.2);
+    background: rgba(231,232,238,.62);
+    border-bottom: 1px solid rgba(29,30,36,.07);
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+  .nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 58px; }
+  .nav-name { font-family: var(--serif); font-size: 1.35rem; white-space: nowrap; color: var(--ink); text-decoration: none; }
+  .nav ul { list-style: none; display: flex; gap: 1.6rem; }
+  .nav ul a { color: var(--ink-soft); text-decoration: none; font-size: .95rem; }
+  .nav ul a:hover { color: var(--ink); }
+
+  /* ---------- hero ---------- */
+  .hero { padding: clamp(3rem, 8vw, 6.5rem) 0 clamp(3rem, 7vw, 5.5rem); }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.25fr .9fr;
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: end;
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(3rem, 8.2vw, 7.6rem);
+    line-height: .88;
+    letter-spacing: -.02em;
+  }
+  .hero h1 span { display: block; white-space: nowrap; }
+  .hero h1 span + span { padding-left: .55em; }
+  .hero-intro {
+    margin-top: 2rem;
+    max-width: 34rem;
+    font-size: 1.15rem;
+    color: var(--ink-soft);
+  }
+  .hero-intro strong { color: var(--ink); font-weight: 500; }
+  .hero-links { margin-top: 1.8rem; display: flex; flex-wrap: wrap; gap: .8rem; }
+  .btn {
+    display: inline-block;
+    padding: .8rem 1.35rem;
+    border-radius: 999px;
+    font-size: .98rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--ink);
+    border: 1px solid rgba(29,30,36,.25);
+    background: rgba(245,246,249,.5);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: background .2s;
+  }
+  .btn:hover { background: var(--glass); color: var(--ink); }
+  .btn.solid { background: var(--ink); color: var(--glass); border-color: var(--ink); }
+  .btn.solid:hover { background: #33353F; color: #fff; }
+
+  /* the portrait sits in an arched vitrine behind reeded glass */
+  .vitrine {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    border-radius: 999px 999px 18px 18px;
+    overflow: hidden;
+    background: var(--lime);
+    box-shadow: 0 30px 60px -30px rgba(40,38,70,.45);
+  }
+  .vitrine img { width: 100%; height: 100%; object-fit: cover; object-position: 55% 20%; }
+  .reeded {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    height: 34%;
+    backdrop-filter: blur(6px) saturate(1.15) brightness(1.05);
+    -webkit-backdrop-filter: blur(6px) saturate(1.15) brightness(1.05);
+    background:
+      repeating-linear-gradient(90deg,
+        rgba(255,255,255,.34) 0 1px,
+        rgba(255,255,255,.07) 1px 8px,
+        rgba(30,30,50,.12) 8px 10px,
+        rgba(255,255,255,.10) 10px 16px);
+    border-top: 1px solid rgba(255,255,255,.6);
+    animation: lift 1.6s cubic-bezier(.2,.7,.1,1) .25s both;
+  }
+  @keyframes lift { from { height: 100%; } to { height: 34%; } }
+  .vitrine figcaption {
+    position: absolute; left: 1.2rem; bottom: 1rem; right: 1.2rem;
+    font-size: .85rem; color: var(--ink);
+    z-index: 2;
+  }
+
+  .status {
+    margin-top: clamp(2.5rem, 6vw, 4rem);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  .status div {
+    padding: 1.1rem 1.25rem;
+    border-radius: 16px;
+    background: rgba(245,246,249,.55);
+    border: 1px solid rgba(255,255,255,.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  .status b { display: block; font-weight: 600; font-size: .95rem; margin-bottom: .2rem; }
+  .status p { font-size: .95rem; color: var(--ink-soft); line-height: 1.5; }
+
+  /* ---------- section heads ---------- */
+  section { padding: clamp(3.5rem, 8vw, 6.5rem) 0; }
+  .head { display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; margin-bottom: clamp(2rem, 5vw, 3.5rem); align-items: end; }
+  .head h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(2.6rem, 6vw, 4.6rem);
+    line-height: .95;
+    letter-spacing: -.015em;
+  }
+  .head p { color: var(--ink-soft); max-width: 40rem; }
+
+  /* ---------- work ---------- */
+  .work-list { display: grid; gap: 1.1rem; }
+  .project {
+    display: grid;
+    grid-template-columns: 11rem 1fr;
+    gap: 1.5rem 2.5rem;
+    padding: clamp(1.4rem, 3vw, 2.2rem);
+    border-radius: 22px;
+    background: rgba(245,246,249,.6);
+    border: 1px solid rgba(255,255,255,.85);
     backdrop-filter: blur(12px);
-    border-bottom: 0.5px solid var(--border);
-    padding: 0 5%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 60px;
+    -webkit-backdrop-filter: blur(12px);
   }
-
-  .nav-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 18px;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    color: var(--ink);
-    text-decoration: none;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 32px;
-    list-style: none;
-  }
-
-  .nav-links a {
-    font-size: 12px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .nav-links a:hover { color: var(--gold); }
-
-  /* HERO */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 100px 5% 80px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    background: 
-      radial-gradient(ellipse 60% 70% at 80% 50%, rgba(184,150,90,0.07) 0%, transparent 70%),
-      linear-gradient(165deg, var(--cream) 0%, var(--cream-dark) 100%);
-  }
-
-  .hero-ornament {
-    position: absolute;
-    top: 15%;
-    right: 8%;
-    width: 320px;
-    height: 320px;
-    border: 0.5px solid var(--border);
-    border-radius: 50%;
-    opacity: 0.4;
-  }
-
-  .hero-ornament::before {
-    content: '';
-    position: absolute;
-    inset: 20px;
-    border: 0.5px solid var(--border);
-    border-radius: 50%;
-  }
-
-  .hero-ornament::after {
-    content: '';
-    position: absolute;
-    inset: 60px;
-    border: 0.5px solid var(--border);
-    border-radius: 50%;
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 1;
-    max-width: 680px;
-  }
-
-  .hero-eyebrow {
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 20px;
-  }
-
-  .hero-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(52px, 7vw, 88px);
-    font-weight: 300;
-    line-height: 1.0;
-    color: var(--ink);
-    margin-bottom: 8px;
-    letter-spacing: -0.01em;
-  }
-
-  .hero-name em {
-    font-style: italic;
-    color: var(--gold);
-  }
-
-  .hero-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(18px, 2.5vw, 26px);
-    font-weight: 300;
-    color: var(--ink-soft);
-    margin-bottom: 32px;
-    letter-spacing: 0.02em;
-  }
-
-  .hero-bio {
-    font-size: 15px;
-    color: var(--ink-mid);
-    max-width: 520px;
-    margin-bottom: 44px;
-    line-height: 1.8;
-  }
-
-  .hero-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 40px;
-  }
-
-  .tag {
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--gold);
-    border: 0.5px solid var(--border);
-    padding: 5px 14px;
-    background: rgba(184,150,90,0.05);
-  }
-
-  .hero-cta {
-    display: flex;
-    gap: 16px;
-    align-items: center;
-  }
-
-  .btn-primary {
-    font-size: 11px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--white);
-    background: var(--ink);
-    padding: 14px 32px;
-    text-decoration: none;
-    transition: background 0.2s;
-    display: inline-block;
-  }
-
-  .btn-primary:hover { background: var(--ink-mid); }
-
-  .btn-outline {
-    font-size: 11px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--ink);
-    border: 0.5px solid var(--ink);
-    padding: 14px 32px;
-    text-decoration: none;
-    transition: all 0.2s;
-    display: inline-block;
-  }
-
-  .btn-outline:hover {
-    background: var(--ink);
-    color: var(--white);
-  }
-
-  /* SECTION SCAFFOLDING */
-  section {
-    padding: 100px 5%;
-  }
-
-  .section-header {
-    display: flex;
-    align-items: baseline;
-    gap: 20px;
-    margin-bottom: 64px;
-  }
-
-  .section-number {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 13px;
-    color: var(--gold);
-    letter-spacing: 0.1em;
-  }
-
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(32px, 4vw, 48px);
-    font-weight: 300;
-    color: var(--ink);
-    letter-spacing: -0.01em;
-  }
-
-  .section-line {
-    flex: 1;
-    height: 0.5px;
-    background: var(--border);
-    margin-bottom: 6px;
-  }
-
-  /* ABOUT SECTION */
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: start;
-  }
-
-  .about-text h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px;
+  .project.feature { background: var(--ink); color: var(--glass); border-color: var(--ink); }
+  .project.feature .meta, .project.feature .lede, .project.feature details p, .project.feature details li { color: #C6C8D4; }
+  .project.feature summary { color: var(--lime); }
+  .project.feature .facts dt { color: #9EA1B4; }
+  .meta { font-size: .9rem; color: var(--ink-soft); line-height: 1.5; }
+  .meta span { display: block; }
+  .project h3 {
+    font-family: var(--serif);
     font-weight: 400;
-    margin-bottom: 16px;
-    color: var(--ink);
+    font-size: clamp(1.9rem, 3.6vw, 2.7rem);
+    line-height: 1.05;
+    margin-bottom: .6rem;
   }
+  .lede { color: var(--ink-soft); max-width: var(--measure); font-size: 1.08rem; }
+  .facts { display: flex; flex-wrap: wrap; gap: .5rem 2rem; margin-top: 1.1rem; }
+  .facts div { display: flex; gap: .45rem; font-size: .92rem; }
+  .facts dt { color: var(--ink-soft); }
+  .facts dd { font-weight: 500; }
 
-  .about-text p {
-    color: var(--ink-mid);
-    margin-bottom: 20px;
-    line-height: 1.8;
-  }
-
-  .about-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1px;
-    background: var(--border);
-    border: 0.5px solid var(--border);
-  }
-
-  .stat-cell {
-    background: var(--cream);
-    padding: 28px 24px;
-    text-align: center;
-  }
-
-  .stat-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 44px;
-    font-weight: 300;
-    color: var(--gold);
-    line-height: 1;
-    margin-bottom: 6px;
-  }
-
-  .stat-label {
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-  }
-
-  /* PROJECTS */
-  .projects-section {
-    background: var(--white);
-  }
-
-  .project-card {
-    border: 0.5px solid var(--border-soft);
-    background: var(--cream);
-    margin-bottom: 2px;
-    transition: border-color 0.3s;
-    overflow: hidden;
-  }
-
-  .project-card:hover { border-color: var(--gold); }
-
-  .project-header {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 24px;
-    padding: 36px 40px;
+  details { margin-top: 1.2rem; max-width: var(--measure); }
+  summary {
     cursor: pointer;
-    align-items: start;
-  }
-
-  .project-meta {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 10px;
-  }
-
-  .project-date {
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--gold);
-  }
-
-  .project-module {
-    font-size: 11px;
-    letter-spacing: 0.06em;
-    color: var(--ink-soft);
-    padding: 3px 10px;
-    border: 0.5px solid var(--border);
-  }
-
-  .project-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(22px, 2.8vw, 30px);
-    font-weight: 400;
-    color: var(--ink);
-    line-height: 1.2;
-    margin-bottom: 10px;
-  }
-
-  .project-subtitle {
-    font-size: 14px;
-    color: var(--ink-soft);
-    font-style: italic;
-  }
-
-  .project-toggle {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 28px;
-    color: var(--gold);
-    line-height: 1;
-    transition: transform 0.3s;
-    user-select: none;
-    padding-top: 8px;
-  }
-
-  .project-card.open .project-toggle { transform: rotate(45deg); }
-
-  .project-body {
-    display: none;
-    padding: 0 40px 40px;
-    border-top: 0.5px solid var(--border-soft);
-  }
-
-  .project-card.open .project-body { display: block; }
-
-  .project-content-grid {
-    display: grid;
-    grid-template-columns: 3fr 2fr;
-    gap: 48px;
-    padding-top: 36px;
-  }
-
-  .project-desc {
-    font-size: 15px;
-    color: var(--ink-mid);
-    line-height: 1.85;
-    margin-bottom: 24px;
-  }
-
-  .project-highlight {
-    background: var(--gold-pale);
-    border-left: 2px solid var(--gold);
-    padding: 16px 20px;
-    margin: 20px 0;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 17px;
-    font-style: italic;
-    color: var(--ink-mid);
-    line-height: 1.6;
-  }
-
-  .project-sidebar h4 {
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 14px;
-  }
-
-  .project-skills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: 28px;
-  }
-
-  .skill-pill {
-    font-size: 11px;
-    letter-spacing: 0.06em;
-    color: var(--ink-soft);
-    border: 0.5px solid var(--border);
-    padding: 4px 12px;
-    background: var(--white);
-  }
-
-  .project-kv {
-    margin-bottom: 20px;
-  }
-
-  .project-kv-row {
-    display: flex;
-    gap: 12px;
-    padding: 8px 0;
-    border-bottom: 0.5px solid var(--border-soft);
-    font-size: 13px;
-  }
-
-  .kv-key {
-    color: var(--ink-soft);
-    min-width: 80px;
-  }
-
-  .kv-val {
-    color: var(--ink-mid);
+    list-style: none;
     font-weight: 500;
+    color: var(--rust);
+    display: inline-flex; align-items: center; gap: .5rem;
   }
-
-  .deliverable-list {
-    list-style: none;
-    margin-bottom: 24px;
-  }
-
-  .deliverable-list li {
-    font-size: 13px;
-    color: var(--ink-mid);
-    padding: 7px 0;
-    border-bottom: 0.5px solid var(--border-soft);
-    display: flex;
-    gap: 10px;
-    align-items: baseline;
-  }
-
-  .deliverable-list li::before {
-    content: '→';
-    color: var(--gold);
-    flex-shrink: 0;
-    font-size: 12px;
-  }
-
-  /* THEORY CHIPS */
-  .theory-chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-  }
-
-  .theory-chip {
-    font-size: 11px;
-    padding: 4px 12px;
-    background: rgba(184,150,90,0.08);
-    border: 0.5px solid var(--border);
-    color: var(--ink-mid);
-    letter-spacing: 0.04em;
-  }
-
-  /* EDUCATION */
-  .edu-section {
-    background: var(--cream-dark);
-  }
-
-  .edu-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-  }
-
-  .edu-card {
-    background: var(--cream);
-    border: 0.5px solid var(--border);
-    padding: 32px;
-  }
-
-  .edu-badge {
-    font-size: 10px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--gold);
-    border: 0.5px solid var(--border);
-    padding: 3px 10px;
-    display: inline-block;
-    margin-bottom: 16px;
-  }
-
-  .edu-degree {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px;
-    font-weight: 400;
-    color: var(--ink);
-    margin-bottom: 6px;
-  }
-
-  .edu-inst {
-    font-size: 13px;
-    color: var(--ink-soft);
-    margin-bottom: 16px;
-  }
-
-  .edu-modules {
-    list-style: none;
-  }
-
-  .edu-modules li {
-    font-size: 12px;
-    color: var(--ink-soft);
-    padding: 5px 0;
-    border-bottom: 0.5px solid var(--border-soft);
-    display: flex;
-    gap: 8px;
-  }
-
-  .edu-modules li::before {
-    content: '·';
-    color: var(--gold);
-  }
-
-  /* EXPERIENCE */
-  .exp-card {
-    border: 0.5px solid var(--border-soft);
-    background: var(--white);
-    padding: 32px 36px;
-    margin-bottom: 2px;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 24px;
-    align-items: start;
-  }
-
-  .exp-dot {
-    width: 8px;
-    height: 8px;
+  summary::-webkit-details-marker { display: none; }
+  summary::before {
+    content: "+";
+    display: inline-grid; place-items: center;
+    width: 1.4rem; height: 1.4rem;
     border-radius: 50%;
-    background: var(--gold);
-    margin-top: 8px;
+    border: 1px solid currentColor;
+    font-size: 1rem; line-height: 1;
+    transition: transform .25s;
   }
-
-  .exp-role {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 20px;
-    font-weight: 400;
-    color: var(--ink);
-    margin-bottom: 3px;
-  }
-
-  .exp-company {
-    font-size: 13px;
-    color: var(--gold);
-    margin-bottom: 12px;
-    letter-spacing: 0.04em;
-  }
-
-  .exp-points {
-    list-style: none;
-  }
-
-  .exp-points li {
-    font-size: 13px;
-    color: var(--ink-mid);
-    padding: 5px 0;
-    display: flex;
-    gap: 10px;
-    line-height: 1.6;
-  }
-
-  .exp-points li::before {
-    content: '—';
-    color: var(--gold);
-    flex-shrink: 0;
-    font-size: 12px;
-  }
-
-  /* CONTACT */
-  .contact-section {
-    background: var(--ink);
-    color: var(--cream);
-  }
-
-  .contact-section .section-title {
-    color: var(--cream);
-  }
-
-  .contact-section .section-line {
-    background: rgba(184,150,90,0.3);
-  }
-
-  .contact-section .section-number {
-    color: var(--gold);
-  }
-
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-  }
-
-  .contact-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(28px, 3.5vw, 42px);
-    font-weight: 300;
-    line-height: 1.3;
-    color: var(--cream);
-    margin-bottom: 32px;
-  }
-
-  .contact-text em {
-    color: var(--gold);
+  details[open] summary::before { transform: rotate(45deg); }
+  details[open] summary .open-label { display: none; }
+  details:not([open]) summary .close-label { display: none; }
+  details > div { padding-top: 1rem; }
+  details p { margin-bottom: .9rem; color: var(--ink-soft); }
+  details ul { padding-left: 1.1rem; margin-bottom: .9rem; }
+  details li { margin-bottom: .45rem; color: var(--ink-soft); }
+  details li b { color: inherit; font-weight: 600; }
+  .project:not(.feature) details li b { color: var(--ink); }
+  blockquote.pull {
+    font-family: var(--serif);
     font-style: italic;
+    font-size: 1.45rem;
+    line-height: 1.3;
+    margin: 1.2rem 0;
+    padding-left: 1rem;
+    border-left: 3px solid var(--lime);
+  }
+  .project:not(.feature) blockquote.pull { color: var(--ink); }
+
+  /* ---------- interlude: ethereal full-bleed ---------- */
+  .interlude { padding: 0; position: relative; overflow: hidden; background: #0f1015; }
+  .interlude img {
+    width: 100%; margin-left: auto; max-width: 1100px; height: min(92vh, 820px);
+    object-fit: cover; object-position: 50% 40%;
+    filter: grayscale(1) contrast(.92) brightness(1.18);
+    -webkit-mask-image: radial-gradient(ellipse 62% 85% at 58% 45%, #000 35%, transparent 100%);
+            mask-image: radial-gradient(ellipse 62% 85% at 58% 45%, #000 35%, transparent 100%);
+    opacity: .9;
+  }
+  .interlude::before {
+    content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    background:
+      radial-gradient(40% 30% at 70% 25%, rgba(207,200,228,.35), transparent 70%),
+      radial-gradient(35% 30% at 25% 75%, rgba(201,244,77,.12), transparent 70%);
+    mix-blend-mode: screen;
+  }
+  .interlude blockquote {
+    position: absolute; z-index: 2;
+    left: max(1.25rem, calc((100% - 1180px) / 2)); bottom: clamp(2rem, 7vw, 4.5rem);
+    width: min(19ch, 100% - 2.5rem);
+    font-family: var(--serif);
+    font-size: clamp(1.7rem, 3.4vw, 2.8rem);
+    line-height: 1.12;
+    color: #F2F2F6;
+    text-align: left;
+    text-shadow: 0 2px 30px rgba(0,0,0,.6);
+  }
+  .interlude cite {
+    display: block; margin-top: 1rem;
+    font-family: var(--sans); font-style: normal;
+    font-size: .95rem; color: #C6C8D4; text-shadow: none;
   }
 
-  .contact-links {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  /* ---------- experience ---------- */
+  .timeline { list-style: none; position: relative; max-width: 58rem; }
+  .timeline::before {
+    content: ""; position: absolute; left: 10.5rem; top: .5rem; bottom: .5rem;
+    width: 1px; background: rgba(29,30,36,.18);
   }
-
-  .contact-item {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    text-decoration: none;
-    color: var(--cream);
-    padding: 16px 20px;
-    border: 0.5px solid rgba(184,150,90,0.2);
-    transition: all 0.2s;
+  .timeline li { display: grid; grid-template-columns: 10.5rem 1fr; gap: 0 2.2rem; padding-bottom: 2.4rem; position: relative; }
+  .timeline li::before {
+    content: ""; position: absolute; left: calc(10.5rem - 5px); top: .55rem;
+    width: 11px; height: 11px; border-radius: 50%;
+    background: var(--lime); border: 2px solid var(--ink);
   }
+  .when { font-size: .92rem; color: var(--ink-soft); padding-top: .15rem; }
+  .timeline h3 { font-family: var(--serif); font-weight: 400; font-size: 1.75rem; line-height: 1.1; }
+  .where { color: var(--ink-soft); margin-bottom: .6rem; }
+  .timeline p { max-width: var(--measure); }
 
-  .contact-item:hover {
-    border-color: var(--gold);
-    background: rgba(184,150,90,0.06);
+  /* ---------- about ---------- */
+  .about .wrap { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(2rem, 6vw, 5.5rem); align-items: center; }
+  .pane { position: relative; border-radius: 22px; overflow: hidden; aspect-ratio: 3 / 4; }
+  .pane img { width: 100%; height: 100%; object-fit: cover; object-position: 40% 30%; }
+  .pane .reeded { top: 0; bottom: 0; left: auto; right: 0; width: 42%; height: auto; animation: none; border-top: 0; border-left: 1px solid rgba(255,255,255,.55); }
+  .about-text h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(2.4rem, 5vw, 3.8rem); line-height: 1; margin-bottom: 1.4rem; }
+  .about-text p { max-width: var(--measure); margin-bottom: 1.1rem; }
+  .langs { margin-top: 1.6rem; display: flex; flex-wrap: wrap; gap: .5rem; }
+  .langs span { padding: .35rem .85rem; border-radius: 999px; background: rgba(245,246,249,.7); border: 1px solid rgba(29,30,36,.12); font-size: .92rem; }
+
+  /* ---------- education and certificates ---------- */
+  .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+  .edu-card { padding: 1.8rem; border-radius: 22px; background: rgba(245,246,249,.6); border: 1px solid rgba(255,255,255,.85); }
+  .edu-card h3 { font-family: var(--serif); font-weight: 400; font-size: 1.9rem; line-height: 1.1; }
+  .edu-card .where { margin: .3rem 0 1rem; }
+  .edu-card ul { list-style: none; }
+  .edu-card li { padding: .5rem 0; border-top: 1px solid rgba(29,30,36,.08); font-size: .98rem; }
+  .edu-card li small { color: var(--ink-soft); font-size: .88rem; }
+
+  /* ---------- contact ---------- */
+  .contact { background: var(--lime); padding: clamp(4rem, 9vw, 7rem) 0 calc(clamp(3rem, 6vw, 4rem) + env(safe-area-inset-bottom, 0px)); }
+  .contact h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(2.6rem, 7vw, 5.6rem); line-height: .95; max-width: 14ch; }
+  .contact .mail {
+    display: inline-block; margin-top: 2rem;
+    font-family: var(--serif); font-size: clamp(1.6rem, 4vw, 2.8rem);
+    color: var(--ink); text-decoration-thickness: 2px; text-underline-offset: 6px;
+    word-break: break-word;
   }
+  .contact-rows { margin-top: 2.5rem; display: flex; flex-wrap: wrap; gap: .8rem; }
+  .contact .btn { background: rgba(255,255,255,.35); border-color: rgba(29,30,36,.35); }
+  .contact .btn:hover { background: rgba(255,255,255,.7); }
+  .foot { margin-top: 3.5rem; font-size: .9rem; color: #3A3D22; display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem; }
 
-  .contact-label {
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--gold);
-    display: block;
-    margin-bottom: 2px;
+  /* ---------- responsive ---------- */
+  @media (max-width: 900px) {
+    .hero-grid, .about .wrap, .head, .edu-grid { grid-template-columns: 1fr; }
+    .vitrine { max-width: 420px; }
+    .status { grid-template-columns: 1fr; }
+    .project { grid-template-columns: 1fr; }
+    .pane { max-width: 460px; }
   }
-
-  .contact-value {
-    font-size: 14px;
-    color: rgba(250,247,242,0.8);
+  @media (max-width: 640px) {
+    .nav ul { gap: 1rem; }
+    .nav ul li:nth-child(2) { display: none; }
+    .nav-name { font-size: 1.15rem; }
+    .nav ul a { font-size: .9rem; }
+    .timeline::before { left: 5px; }
+    .timeline li { grid-template-columns: 1fr; padding-left: 1.8rem; }
+    .timeline li::before { left: 0; }
+    .when { padding-top: 0; margin-bottom: .2rem; }
   }
-
-  /* FOOTER */
-  footer {
-    background: var(--ink-mid);
-    padding: 28px 5%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  @media (max-width: 700px) {
+    .interlude img { height: 70vh; }
+    .interlude blockquote { position: static; width: auto; padding: 0 1.25rem 3rem; margin-top: -3rem; }
   }
-
-  .footer-text {
-    font-size: 12px;
-    color: rgba(250,247,242,0.4);
-    letter-spacing: 0.06em;
-  }
-
-  /* DISSERTATION BADGE */
-  .ongoing-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--white);
-    background: var(--gold);
-    padding: 3px 10px;
-  }
-
-  .ongoing-dot {
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: var(--white);
-    animation: pulse 2s infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.3; }
-  }
-
-  /* RESPONSIVE */
-  @media (max-width: 768px) {
-    .about-grid,
-    .project-content-grid,
-    .edu-grid,
-    .contact-grid {
-      grid-template-columns: 1fr;
-      gap: 40px;
-    }
-
-    .project-header {
-      padding: 24px;
-    }
-
-    .project-body {
-      padding: 0 24px 28px;
-    }
-
-    .exp-card {
-      padding: 24px;
-    }
-
-    .nav-links { display: none; }
-  }
-
-  /* SCROLL ANIMATIONS */
-  .fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-
-  .fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reeded { animation: none; }
+    summary::before { transition: none; }
   }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <a href="#" class="nav-logo">Abdullah Bin Masna</a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="nav-name" href="#top">Abdullah Bin Masna</a>
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
 </nav>
 
-<!-- HERO -->
-<section class="hero" id="top">
-  <div class="hero-bg"></div>
-  <div class="hero-ornament"></div>
-  <div class="hero-content">
-    <p class="hero-eyebrow">MA Luxury Brand Management · University of Southampton</p>
-    <h1 class="hero-name">Abdullah<br><em>Bin Masna</em></h1>
-    <p class="hero-title">Luxury Brand Strategist &amp; Researcher</p>
-    <p class="hero-bio">I study the language luxury speaks — from the architecture of exclusivity to the politics of cultural representation. Currently completing my MA dissertation on how European maisons localise for the GCC market in a post-Vision 2030 world.</p>
-    <div class="hero-tags">
-      <span class="tag">Luxury Strategy</span>
-      <span class="tag">Brand Positioning</span>
-      <span class="tag">GCC Markets</span>
-      <span class="tag">Retail Experience</span>
-      <span class="tag">Consumer Research</span>
-    </div>
-    <div class="hero-cta">
-      <a href="#projects" class="btn-primary">View Projects</a>
-      <a href="#contact" class="btn-outline">Get in Touch</a>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="section-header fade-in">
-    <span class="section-number">01</span>
-    <h2 class="section-title">About</h2>
-    <div class="section-line"></div>
-  </div>
-  <div class="about-grid fade-in">
-    <div class="about-text">
-      <h3>Strategic thinking shaped by cultural depth</h3>
-      <p>I am a postgraduate student in Luxury Brand Management at the University of Southampton, graduating September 2026. My academic work sits at the intersection of luxury theory, cultural studies, and brand strategy — exploring how prestige brands negotiate identity, exclusivity, and meaning in complex global markets.</p>
-      <p>My background as a Pakistani studying European luxury with a specialisation in the Gulf gives me a particular vantage point: I approach cultural consumption as both an insider and an outsider, which I find essential to honest analysis.</p>
-      <p>Across my MA modules I have worked on luxury retail design, consultancy strategy, brand creation, and original research — always grounded in theory but oriented toward practice.</p>
-      <div style="margin-top: 28px;">
-        <p style="font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold); margin-bottom:12px;">Languages</p>
-        <div style="display:flex; gap:8px; flex-wrap:wrap;">
-          <span class="tag">English — Fluent</span>
-          <span class="tag">Urdu — Native</span>
-          <span class="tag">Punjabi — Native</span>
-        </div>
-      </div>
-    </div>
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
     <div>
-      <div class="about-stats">
-        <div class="stat-cell">
-          <div class="stat-num">6</div>
-          <div class="stat-label">Major Projects</div>
-        </div>
-        <div class="stat-cell">
-          <div class="stat-num">5</div>
-          <div class="stat-label">MA Modules</div>
-        </div>
-        <div class="stat-cell">
-          <div class="stat-num">3</div>
-          <div class="stat-label">Work Roles</div>
-        </div>
-        <div class="stat-cell">
-          <div class="stat-num">Sep<br><span style="font-size:22px;">2026</span></div>
-          <div class="stat-label">Graduation</div>
-        </div>
+      <h1><span>Abdullah</span><span>Bin Masna</span></h1>
+      <p class="hero-intro">I work where <strong>luxury brand strategy</strong> meets <strong>CRM</strong>. By day I build marketing automation for enterprise clients. My MA at Southampton was spent on how the world's great houses sell desire, and how they adapt it for new markets.</p>
+      <div class="hero-links">
+        <a class="btn solid" href="#work">See my work</a>
+        <a class="btn" href="mailto:thisismasna@gmail.com">Email me</a>
       </div>
+    </div>
+    <figure class="vitrine">
+      <img src="images/abdullah-lime.jpg" alt="Abdullah Bin Masna in a white ribbed jumper and wire-frame glasses, against a lime backdrop" width="1100" height="1100">
+      <div class="reeded" aria-hidden="true"></div>
+    </figure>
+  </div>
+  <div class="wrap status" aria-label="Where I am now">
+    <div><b>Working</b><p>CRM &amp; Marketing Automation Consultant at HL Pro Tools, New York (remote)</p></div>
+    <div><b>Studied</b><p>MA Luxury Brand Management, University of Southampton, 2025 to 2026</p></div>
+    <div><b>Looking for</b><p>Brand, CRM and marketing roles in the UK, Dubai and beyond</p></div>
+  </div>
+</header>
+
+<main>
+<section id="work">
+  <div class="wrap">
+    <div class="head">
+      <h2>Selected work</h2>
+      <p>Six pieces from my MA, from a dissertation on the Gulf to a Tokyo department store window. Open any of them for the full story.</p>
+    </div>
+
+    <div class="work-list">
+
+      <article class="project feature">
+        <div class="meta"><span>May to Sep 2026</span><span>MA dissertation</span></div>
+        <div>
+          <h3>The Localization Playbook: luxury branding in the GCC</h3>
+          <p class="lede">How Louis Vuitton, Dior, Chanel, Cartier, Bvlgari and Hermès adapt for Gulf customers after Saudi Vision 2030, and where adaptation tips over into appropriation.</p>
+          <dl class="facts">
+            <div><dt>Brands</dt><dd>Six maisons</dd></div>
+            <div><dt>Period</dt><dd>2022 to 2026</dd></div>
+            <div><dt>Status</dt><dd>Submitted September 2026</dd></div>
+          </dl>
+          <details>
+            <summary><span class="open-label">Read the full project</span><span class="close-label">Close</span></summary>
+            <div>
+              <p>Luxury spending in the GCC is growing fast. Mordor Intelligence projects it rising from $19.7B in 2025 to $36.1B by 2031, and European houses have answered with flagships, Ramadan capsules and Saudi ambassadors. That sits awkwardly with Kapferer's anti-laws of luxury, which treat localisation as a threat to a brand's mystique.</p>
+              <blockquote class="pull">Not all localisation undermines mystique. The question is where adaptation ends and appropriation begins.</blockquote>
+              <p>I used three methods:</p>
+              <ul>
+                <li><b>Content analysis</b> of the six houses across product, retail, ambassadors and digital.</li>
+                <li><b>Netnography</b> (Kozinets) of public comments on official brand posts across X, Meta and TikTok, coded in NVivo.</li>
+                <li><b>A bilingual English/Arabic survey</b> of GCC consumers, scoring campaigns from appropriation to authenticity.</li>
+              </ul>
+              <p>As a Pakistani studying European luxury with a focus on the Gulf, I came to it as both an insider and an outsider, which shaped the netnography.</p>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="meta"><span>Jan to May 2026</span><span>The Business of Luxury</span></div>
+        <div>
+          <h3>Bremont: a 2027 campaign in three acts</h3>
+          <p class="lede">A team consultancy brief for the British watchmaker's US push, built around the Terra Nova collection and a new Wayfinder identity.</p>
+          <dl class="facts">
+            <div><dt>Budget</dt><dd>£3.2M</dd></div>
+            <div><dt>Markets</dt><dd>US and UK</dd></div>
+            <div><dt>Delivered</dt><dd>Report and pitch deck</dd></div>
+          </dl>
+          <details>
+            <summary><span class="open-label">Read the full project</span><span class="close-label">Close</span></summary>
+            <div>
+              <p>Bremont is credible on craft and aviation heritage but weaker at keeping clients after the first purchase. We built the strategy to fix retention as much as acquisition, placing Bremont at the centre of a wider British luxury ecosystem.</p>
+              <ul>
+                <li><b>Act 001, The Exhibit.</b> Heritage installations at Heathrow, JFK, Grand Central and Waterloo: wartime aircraft in glass cases alongside Terra Nova watches.</li>
+                <li><b>Act 002, The Collective.</b> A travelling pop-up across New York, Miami, Dallas and Los Angeles with Aston Martin, Hackett London, Crockett &amp; Jones and Globe-Trotter.</li>
+                <li><b>Act 003, The Wayfinder Weekends.</b> A members-only outdoor programme for Bremont owners, led by adventurers and mountaineers.</li>
+              </ul>
+              <p>Grounded in Pine &amp; Gilmore's Experience Economy and Moore's brand ecosystem theory.</p>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="meta"><span>Mar to May 2026</span><span>Exploring the Language of Display</span></div>
+        <div>
+          <h3>Hana to Heiwa at Mitsukoshi Nihonbashi</h3>
+          <p class="lede">"Flowers and Peace": a six-day display event for the Tokyo flagship, running from Hinamatsuri to International Women's Day 2027.</p>
+          <dl class="facts">
+            <div><dt>Place</dt><dd>Tokyo</dd></div>
+            <div><dt>Length</dt><dd>Six days</dd></div>
+            <div><dt>Concept partners</dt><dd>Issey Miyake, Mikimoto, Wajima lacquer</dd></div>
+          </dl>
+          <details>
+            <summary><span class="open-label">Read the full project</span><span class="close-label">Close</span></summary>
+            <div>
+              <p>The concept carries a political story about women and succession entirely through space, visual merchandising and brand collaboration, never through slogans.</p>
+              <blockquote class="pull">Display is treated as a message, not simply as décor.</blockquote>
+              <p>Visitors move from a chrysanthemum facade to a hinadan in the Central Hall beneath the 1930 pipe organ, then to a Leadership Gallery ending at an empty plinth labelled "2027". A corridor of tsurushi-bina hanging dolls, paper cranes and cherry blossom runs from cosmetics to jewellery.</p>
+              <p>The work covered the facade, three interior zones, brand collaborations, a PR plan with Tokyo Metro posters and social tiles, and staff styling.</p>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="meta"><span>Oct 2025 to Jan 2026</span><span>Professional Luxury Practices</span></div>
+        <div>
+          <h3>Fabergé: a recovery plan for a Tsar's jeweller</h3>
+          <p class="lede">A business report on Fabergé under Gemfields ownership, with a three-part strategy for 2026 to 2030.</p>
+          <dl class="facts">
+            <div><dt>2024 revenue</dt><dd>USD 13.4M</dd></div>
+            <div><dt>Operating loss</dt><dd>USD 5.7M</dd></div>
+          </dl>
+          <details>
+            <summary><span class="open-label">Read the full project</span><span class="close-label">Close</span></summary>
+            <div>
+              <p>Fabergé has imperial heritage and direct access to responsibly sourced coloured gemstones. By 2024 it was also seeing revenue fall 15% year on year, and customers asking "is this the real Fabergé?"</p>
+              <ul>
+                <li><b>Financial focus:</b> selective divestment and leaner operations.</li>
+                <li><b>Brand clarity:</b> experiential retail and private client work in key cities.</li>
+                <li><b>Provenance:</b> blockchain-backed tracking and imperial storytelling for buyers who want ethical, meaningful luxury.</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="meta"><span>Nov 2025 to Jan 2026</span><span>Principles of Luxury</span></div>
+        <div>
+          <h3>The Cagliostro Universe</h3>
+          <p class="lede">A luxury cigar house I built from nothing: name, story, four collections, website mockups, an Instagram plan and a brand film concept.</p>
+          <details>
+            <summary><span class="open-label">Read the full project</span><span class="close-label">Close</span></summary>
+            <div>
+              <p>Cagliostro runs on what I called a "digital velvet rope": withholding information on purpose, so the brand stays a little out of reach. It draws on Kapferer's anti-laws, Veblen, and Bourdieu's idea that people carry several identities at once.</p>
+              <p>The four collections are Signature, Grand Cru, Aniversario and Millennium, each with its own character, from creamy to intense.</p>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="meta"><span>Nov 2025 to Jan 2026</span><span>Context of Luxury</span></div>
+        <div>
+          <h3>Why is luxury a contested issue?</h3>
+          <p class="lede">An essay on class, identity and menswear, from Beau Brummell and the Teddy Boys to Virgil Abloh at Louis Vuitton.</p>
+          <details>
+            <summary><span class="open-label">Read the full project</span><span class="close-label">Close</span></summary>
+            <div>
+              <p>Using Bourdieu's habitus and cultural capital, the essay follows how luxury has marked class, and how Gen Z values and Abloh's "zeroing" approach unsettled that. It ends on quiet luxury, arguing that rejecting logos is still a way of signalling status, just a quieter one.</p>
+            </div>
+          </details>
+        </div>
+      </article>
+
     </div>
   </div>
 </section>
 
-<!-- PROJECTS -->
-<section id="projects" class="projects-section">
-  <div class="section-header fade-in">
-    <span class="section-number">02</span>
-    <h2 class="section-title">Projects</h2>
-    <div class="section-line"></div>
-  </div>
-
-  <!-- PROJECT 1: DISSERTATION -->
-  <div class="project-card fade-in" id="p1">
-    <div class="project-header" onclick="toggleProject('p1')">
-      <div>
-        <div class="project-meta">
-          <span class="project-date">May 2026 – Present</span>
-          <span class="project-module">MA Dissertation</span>
-          <span class="ongoing-badge"><span class="ongoing-dot"></span>In Progress</span>
-        </div>
-        <h3 class="project-name">The Localization Playbook<br>Luxury Branding in the GCC</h3>
-        <p class="project-subtitle">How European luxury maisons balance global identity with cultural adaptation in the Gulf</p>
-      </div>
-      <span class="project-toggle">+</span>
-    </div>
-    <div class="project-body">
-      <div class="project-content-grid">
-        <div>
-          <p class="project-desc">As luxury spending surges in the GCC — projected by Mordor Intelligence to grow from $19.7B in 2025 to $36.1B by 2031 — European luxury houses have dramatically accelerated their regional presence: flagship openings, Ramadan capsules, Saudi ambassadors. Yet this commercial shift sits in direct tension with Kapferer's "anti-laws" framework, which positions localisation as a threat to brand mystique.</p>
-          <div class="project-highlight">"Not all localisation undermines a brand's mystique — the dissertation challenges Kapferer's framework in a post-Vision 2030 context."</div>
-          <p class="project-desc">The research focuses on six major luxury houses — Louis Vuitton, Dior, Chanel, Cartier, Bvlgari, and Hermès — analysing their localisation tactics across product, retail, ambassador, and digital channels between 2022–2026. It argues that the critical question is not whether brands localise, but where cultural adaptation tips into appropriation.</p>
-          <p class="project-desc">My identity as a Pakistani with shared religious and linguistic ties to the Gulf positions this study with a distinctive insider-outsider perspective — central to the netnographic methodology.</p>
-          <div style="margin-top:24px;">
-            <h4 style="font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold); margin-bottom:12px;">Methodology — Three Stage</h4>
-            <ul class="deliverable-list">
-              <li><strong>Content Analysis:</strong> Multi-case qualitative study of LV, Dior, Chanel, Cartier, Bvlgari &amp; Hermès across four dimensions: product, retail, ambassador, digital (2022–2026)</li>
-              <li><strong>Netnography:</strong> Kozinets (2020) netnographic study of public discourse across X, Meta, and TikTok — analysing comment threads from 30–40 official brand posts, coded via NVivo with reflexive thematic analysis</li>
-              <li><strong>Consumer Survey:</strong> Bilingual (English/Arabic) online survey targeting 80–120 GCC respondents aged 20–45; 1–5 appropriation-to-authenticity scale</li>
-            </ul>
-          </div>
-        </div>
-        <div class="project-sidebar">
-          <h4>Key Theories</h4>
-          <div class="theory-chips">
-            <span class="theory-chip">Kapferer Anti-Laws</span>
-            <span class="theory-chip">Hofstede Cultural Dimensions</span>
-            <span class="theory-chip">Lojacono (2022) — Localisation vs Appropriation</span>
-            <span class="theory-chip">Janmohamed — Generation M</span>
-            <span class="theory-chip">Rogers — Cultural Appropriation Spectrum</span>
-            <span class="theory-chip">Berthon — Aesthetics &amp; Controlled Rarity</span>
-          </div>
-          <br>
-          <h4>Project Details</h4>
-          <div class="project-kv">
-            <div class="project-kv-row"><span class="kv-key">Word count</span><span class="kv-val">2,150 (proposal)</span></div>
-            <div class="project-kv-row"><span class="kv-key">Submission</span><span class="kv-val">7 September 2026</span></div>
-            <div class="project-kv-row"><span class="kv-key">Brands</span><span class="kv-val">LV, Dior, Chanel, Cartier, Bvlgari, Hermès</span></div>
-            <div class="project-kv-row"><span class="kv-key">Market</span><span class="kv-val">Saudi Arabia &amp; GCC</span></div>
-          </div>
-          <h4>Skills</h4>
-          <div class="project-skills">
-            <span class="skill-pill">Research Methods</span>
-            <span class="skill-pill">Luxury Brand Strategy</span>
-            <span class="skill-pill">Netnography</span>
-            <span class="skill-pill">Cross-Cultural Analysis</span>
-            <span class="skill-pill">NVivo</span>
-            <span class="skill-pill">Survey Design</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- PROJECT 2: BREMONT -->
-  <div class="project-card fade-in" id="p2">
-    <div class="project-header" onclick="toggleProject('p2')">
-      <div>
-        <div class="project-meta">
-          <span class="project-date">Jan 2026 – May 2026</span>
-          <span class="project-module">The Business of Luxury</span>
-        </div>
-        <h3 class="project-name">Bremont Watch Company<br>2027 Marketing Strategy</h3>
-        <p class="project-subtitle">A £3.2M integrated three-act campaign for a British luxury watchmaker's US expansion</p>
-      </div>
-      <span class="project-toggle">+</span>
-    </div>
-    <div class="project-body">
-      <div class="project-content-grid">
-        <div>
-          <p class="project-desc">Bremont occupies a compelling position — genuinely credible on technical craftsmanship and aviation heritage, yet with notable gaps in client acquisition and post-purchase engagement. Our consultancy brief centred on constructing a long-term marketing strategy to address both acquisition and retention, particularly around the launch of the Terra Nova collection and the introduction of the Wayfinder identity.</p>
-          <div class="project-highlight">"The real challenge was more about reshaping how Bremont connects with consumers than simply promoting a new collection."</div>
-          <p class="project-desc">Our strategy positions Bremont as the centrepiece of a wider British luxury ecosystem — targeting expansion into the US through three integrated acts. Grounded in Pine &amp; Gilmore's Experience Economy Theory and Moore's Brand Ecosystem Theory, it directly addresses Bremont's overreliance on acquisition over retention.</p>
-
-          <div style="margin-top:24px;">
-            <h4 style="font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold); margin-bottom:12px;">The Three Acts</h4>
-            <ul class="deliverable-list">
-              <li><strong>Act 001 — The Exhibit:</strong> Guerrilla heritage installations at high-footfall locations (Heathrow, JFK, Grand Central, Waterloo) — wartime aircraft in glass cases with Terra Nova timepieces, targeting earned media virality</li>
-              <li><strong>Act 002 — The Collective:</strong> A travelling immersive pop-up across New York, Miami, Dallas, and Los Angeles — five brand zones under one roof (Bremont, Aston Martin, Hackett London, Crockett &amp; Jones, Globe-Trotter) with cinematic cross-brand storytelling on Instagram, YouTube, and TikTok</li>
-              <li><strong>Act 003 — The Wayfinder Weekends:</strong> A membership-led weekly outdoor programme exclusively for Bremont clients — led by adventurers, mountaineers, and survival experts across rotating themes</li>
-            </ul>
-          </div>
-        </div>
-        <div class="project-sidebar">
-          <h4>Theoretical Framework</h4>
-          <div class="theory-chips">
-            <span class="theory-chip">Pine &amp; Gilmore — Experience Economy</span>
-            <span class="theory-chip">Moore — Brand Ecosystem Theory</span>
-            <span class="theory-chip">Kapferer — Luxury Brand Imposition</span>
-          </div>
-          <br>
-          <h4>Project Details</h4>
-          <div class="project-kv">
-            <div class="project-kv-row"><span class="kv-key">Word count</span><span class="kv-val">2,341</span></div>
-            <div class="project-kv-row"><span class="kv-key">Budget</span><span class="kv-val">£3.2M</span></div>
-            <div class="project-kv-row"><span class="kv-key">Market</span><span class="kv-val">US + UK</span></div>
-            <div class="project-kv-row"><span class="kv-key">Format</span><span class="kv-val">Report + Pitch Deck</span></div>
-          </div>
-          <h4>Partner Brands</h4>
-          <div class="project-skills">
-            <span class="skill-pill">Bremont</span>
-            <span class="skill-pill">Aston Martin</span>
-            <span class="skill-pill">Hackett London</span>
-            <span class="skill-pill">Crockett &amp; Jones</span>
-            <span class="skill-pill">Globe-Trotter</span>
-          </div>
-          <br>
-          <h4>Skills</h4>
-          <div class="project-skills">
-            <span class="skill-pill">Luxury Brand Strategy</span>
-            <span class="skill-pill">Campaign Planning</span>
-            <span class="skill-pill">Experiential Marketing</span>
-            <span class="skill-pill">SWOT Analysis</span>
-            <span class="skill-pill">Pitch Presentation</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- PROJECT 3: HANA TO HEIWA -->
-  <div class="project-card fade-in" id="p3">
-    <div class="project-header" onclick="toggleProject('p3')">
-      <div>
-        <div class="project-meta">
-          <span class="project-date">Mar 2026 – May 2026</span>
-          <span class="project-module">Exploring the Language of Display</span>
-        </div>
-        <h3 class="project-name">Hana to Heiwa<br>Mitsukoshi Nihonbashi Display Event</h3>
-        <p class="project-subtitle">"Flowers and Peace" — A six-day luxury retail event embedding feminist politics in spatial design</p>
-      </div>
-      <span class="project-toggle">+</span>
-    </div>
-    <div class="project-body">
-      <div class="project-content-grid">
-        <div>
-          <p class="project-desc">A full luxury retail display event for the Mitsukoshi Nihonbashi flagship in Tokyo — running across six days bridging Hinamatsuri (3 March) and International Women's Day (8 March 2027). The concept embeds a sociopolitical narrative around Japan's first female premiership and the contradiction within imperial succession laws — communicated entirely through spatial design, visual merchandising, and brand collaboration rather than direct messaging.</p>
-          <div class="project-highlight">"Display is treated as a message, not simply as décor. Absence becomes the core design device: an empty plinth, an unnamed Empress, an unfinished stamp card."</div>
-          <p class="project-desc">The visitor journey moves through three zones: a chrysanthemum-adorned facade, a grand Central Hall hinadan beneath the 1930 pipe organ, and a First-Floor Leadership Gallery culminating in an empty plinth labelled "2027" and "Mirai" — the missing object as political argument, after Baudrillard. A tsurushi-bina corridor transforms the cosmetics-to-jewellery passageway into a ceiling installation of hundreds of fabric dolls, paper cranes, and cherry blossoms.</p>
-          <p class="project-desc">The project covers façade design, interior choreography across three zones, luxury brand collaborations with Issey Miyake, Mikimoto, and Wajima lacquerware, a full PR campaign including Tokyo Metro posters, Vogue Japan placements, press invitations, social media tiles, and staff styling for 80 female Mitsukoshi employees.</p>
-        </div>
-        <div class="project-sidebar">
-          <h4>Theoretical Grounding</h4>
-          <div class="theory-chips">
-            <span class="theory-chip">Veblen — Conspicuous Consumption</span>
-            <span class="theory-chip">Baudrillard — Missing Object</span>
-            <span class="theory-chip">de Certeau — Strategy vs Tactic</span>
-            <span class="theory-chip">McCracken — Goods as Bridges</span>
-            <span class="theory-chip">Bowlby — Shop Window Seduction</span>
-            <span class="theory-chip">Benjamin — Arcade Project</span>
-          </div>
-          <br>
-          <h4>Deliverables</h4>
-          <ul class="deliverable-list">
-            <li>Façade design concept</li>
-            <li>3-zone interior choreography</li>
-            <li>Brand collaboration strategy (Issey Miyake, Mikimoto, Wajima)</li>
-            <li>PR &amp; marketing campaign</li>
-            <li>Press invitations &amp; social tiles</li>
-            <li>Staff styling direction</li>
-            <li>Giveaway &amp; stamp card system</li>
-          </ul>
-          <h4>Project Details</h4>
-          <div class="project-kv">
-            <div class="project-kv-row"><span class="kv-key">Word count</span><span class="kv-val">2,994</span></div>
-            <div class="project-kv-row"><span class="kv-key">Location</span><span class="kv-val">Tokyo, Japan</span></div>
-            <div class="project-kv-row"><span class="kv-key">Duration</span><span class="kv-val">6 days</span></div>
-          </div>
-          <h4>Skills</h4>
-          <div class="project-skills">
-            <span class="skill-pill">Visual Merchandising</span>
-            <span class="skill-pill">Retail Experience Design</span>
-            <span class="skill-pill">Spatial Narrative</span>
-            <span class="skill-pill">Brand Collaboration</span>
-            <span class="skill-pill">PR &amp; Marketing</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- PROJECT 4: FABERGE -->
-  <div class="project-card fade-in" id="p4">
-    <div class="project-header" onclick="toggleProject('p4')">
-      <div>
-        <div class="project-meta">
-          <span class="project-date">Oct 2025 – Jan 2026</span>
-          <span class="project-module">Professional Luxury Practices</span>
-        </div>
-        <h3 class="project-name">Fabergé — Tsar's Jewel<br>Strategic Business Report</h3>
-        <p class="project-subtitle">A three-pillar recovery &amp; growth strategy for the House of Fabergé under Gemfields ownership</p>
-      </div>
-      <span class="project-toggle">+</span>
-    </div>
-    <div class="project-body">
-      <div class="project-content-grid">
-        <div>
-          <p class="project-desc">Fabergé occupies a rare position in global high jewellery: imperial heritage combined with direct access to responsibly sourced coloured gemstones through Gemfields ownership. Yet by 2024, the brand was simultaneously achieving financial self-sufficiency while suffering a 15% year-on-year revenue decline to USD 13.4 million and operating losses of USD 5.7 million.</p>
-          <div class="project-highlight">"Fabergé must distinguish itself within a conglomerate-dominated market and position as a highly appealing divestment asset — its imperial mystique is both its greatest strength and its greatest strategic burden."</div>
-          <p class="project-desc">The report analyses 2024 financial performance, the high jewellery market outlook to 2030 (including the significance of coloured gemstones outperforming diamonds), HNWI growth in key markets, and brand perception challenges around identity confusion — "Is this the real Fabergé?" — and provenance demand.</p>
-          <div style="margin-top:24px;">
-            <h4 style="font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold); margin-bottom:12px;">Three-Pillar Strategy (2026–2030)</h4>
-            <ul class="deliverable-list">
-              <li><strong>Pillar I — Financial Optimisation:</strong> Selective divestments to liquidate trapped capital; operational streamlining</li>
-              <li><strong>Pillar II — Brand Clarity:</strong> Resolving consumer identity confusion through experiential retail and private client engagement in key hubs</li>
-              <li><strong>Pillar III — Provenance &amp; Innovation:</strong> Blockchain-enabled provenance tracking; imperial storytelling to meet HNWI demand for ethical sourcing and meaningful luxury</li>
-            </ul>
-          </div>
-        </div>
-        <div class="project-sidebar">
-          <h4>Project Details</h4>
-          <div class="project-kv">
-            <div class="project-kv-row"><span class="kv-key">Word count</span><span class="kv-val">3,260</span></div>
-            <div class="project-kv-row"><span class="kv-key">Revenue (2024)</span><span class="kv-val">USD 13.4M</span></div>
-            <div class="project-kv-row"><span class="kv-key">Op. loss</span><span class="kv-val">USD 5.7M</span></div>
-            <div class="project-kv-row"><span class="kv-key">Horizon</span><span class="kv-val">2026–2030</span></div>
-          </div>
-          <h4>Analysis Components</h4>
-          <ul class="deliverable-list">
-            <li>2024 Financial Performance Review</li>
-            <li>High Jewellery Market Outlook to 2030</li>
-            <li>Brand Perception &amp; Consumer Behaviour</li>
-            <li>SWOT Analysis</li>
-            <li>Competitive Landscape</li>
-            <li>Divestment Readiness Framework</li>
-          </ul>
-          <h4>Skills</h4>
-          <div class="project-skills">
-            <span class="skill-pill">Luxury Brand Management</span>
-            <span class="skill-pill">Business Reporting</span>
-            <span class="skill-pill">Financial Analysis</span>
-            <span class="skill-pill">Brand Positioning</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- PROJECT 5: CAGLIOSTRO -->
-  <div class="project-card fade-in" id="p5">
-    <div class="project-header" onclick="toggleProject('p5')">
-      <div>
-        <div class="project-meta">
-          <span class="project-date">Nov 2025 – Jan 2026</span>
-          <span class="project-module">Principles of Luxury</span>
-        </div>
-        <h3 class="project-name">The Cagliostro Universe<br>Luxury Brand Creation</h3>
-        <p class="project-subtitle">A luxury cigar house built on engineered exclusivity, dark sophistication, and the digital velvet rope</p>
-      </div>
-      <span class="project-toggle">+</span>
-    </div>
-    <div class="project-body">
-      <div class="project-content-grid">
-        <div>
-          <p class="project-desc">The Cagliostro Universe is a complete luxury cigar brand built from scratch — applying Kapferer's Anti-Laws of Marketing, Veblen's conspicuous consumption theory, and a "digital velvet rope" strategy to craft a brand identity built on engineered exclusivity and dark sophistication.</p>
-          <div class="project-highlight">"Cagliostro intentionally draws away from standard luxury marketing. By engaging consumers from boardrooms to leisure — essentially in multiple ways — we assert ourselves as a 'cultural brand.'"</div>
-          <p class="project-desc">Central to the brand strategy is Pierre Bourdieu's concept of <em>polyhedric identity</em> — the idea that an individual has a multi-faceted identity shaped by different fields and contexts. Cagliostro shifts from the logo-driven status symbol (which lost its essence after mass accessibility in the 1990s) to a cultural narrative that ensures brand relevance in a fragmented luxury market.</p>
-          <p class="project-desc">The brand deliberately rejects the transparency trend in luxury, treating withholding of information as a "mysterious aesthetic" — what Athwal &amp; Wells (2019) call "maintaining the dream." Collections include Signature (creamy and sophisticated), Grand Cru (cultivated and aromatic), Aniversario (diverse and complex), and Millennium (intense and refined).</p>
-        </div>
-        <div class="project-sidebar">
-          <h4>Theoretical Framework</h4>
-          <div class="theory-chips">
-            <span class="theory-chip">Kapferer — Anti-Laws of Marketing</span>
-            <span class="theory-chip">Veblen — Conspicuous Consumption</span>
-            <span class="theory-chip">Bourdieu — Polyhedric Identity</span>
-            <span class="theory-chip">Athwal &amp; Wells — Maintaining the Dream</span>
-          </div>
-          <br>
-          <h4>Deliverables</h4>
-          <ul class="deliverable-list">
-            <li>Full brand strategy &amp; positioning</li>
-            <li>Website design mockups</li>
-            <li>Instagram content plan</li>
-            <li>Mini brand film concept</li>
-            <li>Product range architecture</li>
-          </ul>
-          <h4>Project Details</h4>
-          <div class="project-kv">
-            <div class="project-kv-row"><span class="kv-key">Word count</span><span class="kv-val">1,814</span></div>
-            <div class="project-kv-row"><span class="kv-key">Category</span><span class="kv-val">Luxury Cigars</span></div>
-            <div class="project-kv-row"><span class="kv-key">Strategy</span><span class="kv-val">Digital Velvet Rope</span></div>
-          </div>
-          <h4>Skills</h4>
-          <div class="project-skills">
-            <span class="skill-pill">Brand Creation</span>
-            <span class="skill-pill">Luxury Theory</span>
-            <span class="skill-pill">Digital Strategy</span>
-            <span class="skill-pill">Content Planning</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- PROJECT 6: ESSAY -->
-  <div class="project-card fade-in" id="p6">
-    <div class="project-header" onclick="toggleProject('p6')">
-      <div>
-        <div class="project-meta">
-          <span class="project-date">Nov 2025 – Jan 2026</span>
-          <span class="project-module">Context of Luxury</span>
-        </div>
-        <h3 class="project-name">Why is Luxury a Contested Issue?<br>Academic Essay</h3>
-        <p class="project-subtitle">Identity, power, and cultural representation in luxury menswear — from Beau Brummell to Virgil Abloh</p>
-      </div>
-      <span class="project-toggle">+</span>
-    </div>
-    <div class="project-body">
-      <div class="project-content-grid">
-        <div>
-          <p class="project-desc">An academic essay examining why luxury remains a contested concept through the lens of identity, power, and cultural representation in luxury menswear. Drawing on Bourdieu's theories of habitus, cultural capital, and symbolic violence, the essay traces how luxury has historically served as a marker of class distinction — from Beau Brummell and the Teddy Boys through to the present.</p>
-          <div class="project-highlight">"Luxury is not simply a category of goods — it is a symbolic system through which social hierarchies are reproduced, disrupted, and renegotiated across generations."</div>
-          <p class="project-desc">The essay analyses how Gen Z value-based identity, geographical shifts in luxury consumption, and Virgil Abloh's "zeroing" strategy have disrupted the traditional luxury narrative. Abloh's approach — simultaneously inside and outside the luxury establishment — serves as a case study for how cultural capital can be redistributed within systems originally designed to restrict access.</p>
-          <p class="project-desc">The essay also engages with the rise of "quiet luxury" as a response to conspicuous consumption, arguing that even its apparent rejection of status signals is itself a form of distinction — what Bourdieu might call a higher-order symbolic game.</p>
-        </div>
-        <div class="project-sidebar">
-          <h4>Theoretical Framework</h4>
-          <div class="theory-chips">
-            <span class="theory-chip">Bourdieu — Habitus &amp; Cultural Capital</span>
-            <span class="theory-chip">Bourdieu — Symbolic Violence</span>
-            <span class="theory-chip">Veblen — Conspicuous Consumption</span>
-          </div>
-          <br>
-          <h4>Key Case Studies</h4>
-          <ul class="deliverable-list">
-            <li>Beau Brummell — The Birth of Modern Menswear</li>
-            <li>The Teddy Boys — Class Subversion Through Dress</li>
-            <li>Virgil Abloh — "Zeroing" Strategy at Louis Vuitton</li>
-            <li>Quiet Luxury — Distinction Without Logos</li>
-            <li>Gen Z Value-Based Consumption</li>
-          </ul>
-          <h4>Project Details</h4>
-          <div class="project-kv">
-            <div class="project-kv-row"><span class="kv-key">Word count</span><span class="kv-val">2,719</span></div>
-            <div class="project-kv-row"><span class="kv-key">Focus</span><span class="kv-val">Luxury Menswear</span></div>
-          </div>
-          <h4>Skills</h4>
-          <div class="project-skills">
-            <span class="skill-pill">Luxury Theory</span>
-            <span class="skill-pill">Consumer Behaviour</span>
-            <span class="skill-pill">Academic Writing</span>
-            <span class="skill-pill">Cultural Analysis</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
+<section class="interlude" aria-label="Interlude">
+  <img src="images/abdullah-curtain.jpg" alt="Black and white portrait of Abdullah seated against a velvet curtain, eyes closed" loading="lazy" width="1200" height="1600">
+  <blockquote>
+    Luxury is not simply a category of goods. It is a symbolic system through which social hierarchies are reproduced, disrupted and renegotiated.
+    <cite>From my MA essay, Why is luxury a contested issue?</cite>
+  </blockquote>
 </section>
 
-<!-- EDUCATION -->
-<section id="education" class="edu-section">
-  <div class="section-header fade-in">
-    <span class="section-number">03</span>
-    <h2 class="section-title">Education</h2>
-    <div class="section-line"></div>
-  </div>
-  <div class="edu-grid fade-in">
-    <div class="edu-card">
-      <span class="edu-badge">Postgraduate</span>
-      <h3 class="edu-degree">MA Luxury Brand Management</h3>
-      <p class="edu-inst">University of Southampton · Southampton, UK · Graduating September 2026</p>
-      <ul class="edu-modules">
-        <li>Luxury Brand Strategy</li>
-        <li>Consumer Behaviour &amp; Psychology</li>
-        <li>Brand Heritage &amp; Storytelling</li>
-        <li>Digital Luxury Marketing</li>
-        <li>Retail Excellence &amp; Client Experience</li>
-        <li>Global Market Positioning</li>
-      </ul>
-    </div>
-    <div class="edu-card">
-      <span class="edu-badge">Undergraduate</span>
-      <h3 class="edu-degree">BSB — Sciences of Business</h3>
-      <p class="edu-inst">Forman Christian College · Lahore, Pakistan · 2025</p>
-      <ul class="edu-modules">
-        <li>Marketing</li>
-        <li>Business Strategy</li>
-        <li>Market Research</li>
-        <li>International Business</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
 <section id="experience">
-  <div class="section-header fade-in">
-    <span class="section-number">04</span>
-    <h2 class="section-title">Experience</h2>
-    <div class="section-line"></div>
-  </div>
-
-  <div class="exp-card fade-in">
-    <div class="exp-dot"></div>
-    <div>
-      <h3 class="exp-role">CRM &amp; Marketing Automation Consultant</h3>
-      <p class="exp-company">BAAM · New York, USA (Remote) · 2025 – Present</p>
-      <ul class="exp-points">
-        <li>Provide marketing consultancy and CRM implementation (GoHighLevel, HubSpot) to support client acquisition and campaign management</li>
-        <li>Gained applied experience in customer journey mapping, marketing funnel optimisation, and data-driven audience segmentation — directly transferable to luxury clienteling and CRM</li>
-        <li>Managed automation workflows for enterprise-level onboarding and ongoing client engagement campaigns</li>
-      </ul>
+  <div class="wrap">
+    <div class="head">
+      <h2>Experience</h2>
+      <p>Three roles across New York, California and Lahore, most of them remote and all of them about understanding customers.</p>
     </div>
+    <ol class="timeline">
+      <li>
+        <div class="when">May 2025 to now</div>
+        <div>
+          <h3>CRM &amp; Marketing Automation Consultant</h3>
+          <p class="where">HL Pro Tools, New York (remote)</p>
+          <p>I build CRM systems in GoHighLevel and HubSpot for enterprise clients: audience segmentation, booking flows, email and SMS follow-up, and AI agents connected by API for lead qualification. Then I report back on what is working.</p>
+        </div>
+      </li>
+      <li>
+        <div class="when">Aug to Oct 2024</div>
+        <div>
+          <h3>Marketing Research Intern</h3>
+          <p class="where">Woosh Navigation, California (remote)</p>
+          <p>Researched small businesses across the San Francisco Bay Area to see which ones a logistics service would suit, and wrote competitor reports for the senior team.</p>
+        </div>
+      </li>
+      <li>
+        <div class="when">Apr to Aug 2024</div>
+        <div>
+          <h3>International Fellow &amp; Research Intern</h3>
+          <p class="where">Dari Mooch, Lahore</p>
+          <p>Led feasibility research for taking the brand into new international markets, covering target markets and positioning, and shared the findings across departments.</p>
+        </div>
+      </li>
+    </ol>
   </div>
+</section>
 
-  <div class="exp-card fade-in">
-    <div class="exp-dot"></div>
-    <div>
-      <h3 class="exp-role">Marketing Research Intern</h3>
-      <p class="exp-company">Woosh Navigation · California, USA (Remote) · 2024</p>
-      <ul class="exp-points">
-        <li>Conducted structured market research on SMEs in San Francisco to evaluate fit for logistics services, delivering insights that improved targeting precision</li>
-        <li>Leveraged CRM platforms and AI-assisted tools to analyse customer segments and optimise lead generation strategy</li>
-        <li>Produced competitive analysis reports and presented findings to support senior marketing decisions</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="exp-card fade-in">
-    <div class="exp-dot"></div>
-    <div>
-      <h3 class="exp-role">Research Intern — International Expansion</h3>
-      <p class="exp-company">Dari Mooch · Lahore, Pakistan · 2024</p>
-      <ul class="exp-points">
-        <li>Supported market feasibility research for international brand expansion, covering target market analysis and brand positioning</li>
-        <li>Coordinated cross-functional collaboration across departments to align strategy with operational capabilities</li>
-        <li>Contributed to process optimisation and documentation of expansion frameworks</li>
-      </ul>
+<section class="about" id="about">
+  <div class="wrap">
+    <figure class="pane">
+      <img src="images/abdullah-brick.jpg" alt="Abdullah in a tan corduroy jacket beside a red-brick wall and wooden doors" loading="lazy" width="1200" height="1600">
+      <div class="reeded" aria-hidden="true"></div>
+    </figure>
+    <div class="about-text">
+      <h2>A little about me</h2>
+      <p>I grew up in Pakistan, studied business in Lahore, and came to Southampton to study luxury properly. What keeps me interested is the gap between how a brand sees itself and how a customer actually receives it.</p>
+      <p>My day job sits on the customer side of that gap. CRM work is where a brand's promise either holds up or falls apart: the booking confirmation, the follow-up, the message that arrives at the right moment or doesn't arrive at all.</p>
+      <p>I'm now looking for a role that uses both halves: brand thinking and the systems that deliver it. I'm based in the North West and happy to move.</p>
+      <div class="langs" aria-label="Languages">
+        <span>English, fluent</span><span>Urdu, native</span><span>Hindi and Punjabi, native</span>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact" class="contact-section">
-  <div class="section-header fade-in">
-    <span class="section-number" style="color:var(--gold)">05</span>
-    <h2 class="section-title">Contact</h2>
-    <div class="section-line" style="background:rgba(184,150,90,0.3)"></div>
-  </div>
-  <div class="contact-grid fade-in">
-    <div>
-      <p class="contact-text">Let's talk luxury strategy, <em>research,</em> or opportunities.</p>
-      <p style="font-size:14px; color:rgba(250,247,242,0.5); line-height:1.8;">Based in Southampton, UK. Open to internships, entry-level roles, and collaborations in luxury fashion, retail, and brand marketing.</p>
+<section id="education">
+  <div class="wrap">
+    <div class="head">
+      <h2>Education and certificates</h2>
+      <p>Two degrees and a handful of certificates, most of them earned this year.</p>
     </div>
-    <div class="contact-links">
-      <a href="mailto:abdullahbinmasna35@gmail.com" class="contact-item">
-        <div>
-          <span class="contact-label">Email</span>
-          <span class="contact-value">abdullahbinmasna35@gmail.com</span>
-        </div>
-      </a>
-      <a href="tel:07778600314" class="contact-item">
-        <div>
-          <span class="contact-label">Phone</span>
-          <span class="contact-value">07778 600 314</span>
-        </div>
-      </a>
-      <a href="#" class="contact-item">
-        <div>
-          <span class="contact-label">Location</span>
-          <span class="contact-value">Southampton, United Kingdom</span>
-        </div>
-      </a>
-      <a href="#" class="contact-item">
-        <div>
-          <span class="contact-label">LinkedIn</span>
-          <span class="contact-value">Abdullah Bin Masna</span>
-        </div>
-      </a>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <h3>MA Luxury Brand Management</h3>
+        <p class="where">University of Southampton, Sep 2025 to Sep 2026</p>
+        <ul>
+          <li>The Business of Luxury</li>
+          <li>Principles of Luxury</li>
+          <li>Context of Luxury</li>
+          <li>Professional Luxury Practices</li>
+          <li>Exploring the Language of Display</li>
+        </ul>
+        <h3 style="margin-top:1.8rem;">BSB Business</h3>
+        <p class="where">Forman Christian College, Lahore, 2021 to 2025. GPA 3.71</p>
+      </div>
+      <div class="edu-card">
+        <h3>Certificates</h3>
+        <p class="where">Marketing, CRM and brand</p>
+        <ul>
+          <li>HubSpot AEO Fundamentals <small>Sep 2026</small></li>
+          <li>HubSpot Digital Marketing <small>Sep 2026</small></li>
+          <li>Google Digital Garage, Fundamentals of Digital Marketing <small>Sep 2026</small></li>
+          <li>HubSpot Social Media Marketing <small>Jun 2026</small></li>
+          <li>Coursera, Brand Management Skills</li>
+          <li>Predictive Project Management, PMI <small>Dec 2023</small></li>
+          <li>HighLevel Certified Admin <small>Feb 2025, expired Feb 2026</small></li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
+</main>
 
-<!-- FOOTER -->
-<footer>
-  <span class="footer-text">© 2026 Abdullah Bin Masna · MA Luxury Brand Management, University of Southampton</span>
-  <span class="footer-text">Graduating September 2026</span>
+<footer class="contact" id="contact">
+  <div class="wrap">
+    <h2>Let's talk about your brand, or your customers.</h2>
+    <a class="mail" href="mailto:thisismasna@gmail.com">thisismasna@gmail.com</a>
+    <div class="contact-rows">
+      <a class="btn" href="https://www.linkedin.com/in/abdullah-bin-masna/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="tel:+447778600314">07778 600314</a>
+    </div>
+    <div class="foot">
+      <span>Abdullah Bin Masna, 2026</span>
+      <span>Bolton, Greater Manchester. Open to London, Dubai and beyond.</span>
+    </div>
+  </div>
 </footer>
-
-<script>
-function toggleProject(id) {
-  const card = document.getElementById(id);
-  card.classList.toggle('open');
-}
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const target = document.querySelector(a.getAttribute('href'));
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  });
-});
-</script>
 
 </body>
 </html>
